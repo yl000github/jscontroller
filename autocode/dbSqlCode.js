@@ -44,9 +44,20 @@ function getSql(rawColumnList,tableName){
 	}).join(",@");
 	var insertRaw1="insert into @tableName(@prefix) values(@@suffix)";
 	var insertSql1=insertRaw1.replace("@tableName",tableName).replace("@prefix",prefix).replace("@suffix",suffix);
+	
+	var prefix=rawColumnList.filter(function(item){
+		return item!="id";
+//		return item!="id"&&item!="createTime"&&item!="lastUpdate";
+	}).join(",");
+	var suffix=rawColumnList.filter(function(item){
+		return item!="id"&&item!="createTime"&&item!="lastUpdate";
+	}).join(",@");
+	var insertRaw2="insert into @tableName(@prefix) values(@@suffix,now(),now()) on duplicate key update lastUpdate=now()";
+	var insertSql2=insertRaw2.replace("@tableName",tableName).replace("@prefix",prefix).replace("@suffix",suffix);
 	return {
 		insertSql:insertSql,
-		insertSql1:insertSql1
+		insertSql1:insertSql1,
+		insertSql2:insertSql2,
 	}
 }
 function getCode(rawArray){
