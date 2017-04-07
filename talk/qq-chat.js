@@ -42,7 +42,8 @@ function getWord(){
 	var count=5;//3次获取不到则放弃
 	while (count--){
 		JRobotUtil.sleep(1000);
-		var text=JRobotUtil.getRegionText(459, 261, 786, 468);
+		var text=JRobotUtil.getRegionText(448, 246, 779, 468);
+//		var text=JRobotUtil.getRegionText(459, 261, 786, 468);
 //		var text=JRobotUtil.getRegionText(414, 231, 789, 480);
 //		var text=JRobotUtil.getRegionText(0.25, 0.25, 0.75, 0.75);
 		if(!text) continue;

@@ -3,6 +3,9 @@ load("/lib/function.js");
 load("/lib/DBUtil.js");
 load("/lib/HttpUtil.js");
 load("/lib/FileUtil.js");
+/**
+ * 两个需要修订的地方，配置库地址，资源服务器地址
+ */
 Action(function(request){
 	var sqlExecute=DBUtil.getInstance(true);
 	try {
@@ -24,7 +27,7 @@ Action(function(request){
 function upload(){
 	//TODO
 	var downloadDir="e:/download/";
-	var httpRequest="http://192.168.1.26:10500/miResourceMgr/upload";
+	var httpRequest="http://192.168.1.39:10500/miResourceMgr/upload";
 	var pics=JSON.parse(FileUtil.listDir(downloadDir));
 	log("pics",pics);
 	var paths=pics.map(function(pic){
