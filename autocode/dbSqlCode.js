@@ -9,7 +9,12 @@ load("/lib/DBUtil.js");
 		}
 		return ;
 	}
-	var sqlExecute=DBUtil.getInstance(false);
+	var sqlExecute=DBUtil.getInstance(false,{
+		url:"jdbc:mysql://192.168.1.21:3306/dlb?characterEncoding=utf-8&characterSetResults=utf-8&useUnicode=false",
+		user:"ymt",
+		password:"yimiaotong2015",
+		driver:"com.mysql.jdbc.Driver",
+	});
 	var rs=JSON.parse(sqlExecute.query({
 		sql:"desc "+tableName,
 		param:{
@@ -19,10 +24,15 @@ load("/lib/DBUtil.js");
 	var columnList=rs.map(function(item,index){
 		return item.Field;
 	});
-	
+	var demoData=JSON.parse(sqlExecute.query({
+		sql:"select * from "+tableName+" limit 1",
+		param:{
+		}
+	}));
 	$_response_$={
 			sql:getSql(columnList,tableName),
 			code:getCode(columnList),
+			demoData:demoData
 	}
 	
 })($_request_param_$);
@@ -66,6 +76,7 @@ function getCode(rawArray){
 		return "request."+item+"";
 	}).join(",");
 	var inParamObject="{"+rawArray.map(function(item){
+//		return "\""+item+"\":\""+item+"\"";
 		return item+":"+item;
 	}).join(",")+"}";
 	return {

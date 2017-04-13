@@ -10,7 +10,8 @@ Action(function(request){
 	         "20:3306/dlb_test","21:3306/dlb",
 	         "39:3306/dlb","39:3306/dlb_uat","40:3306/dlb","55:3306/dlb",
 	         ];
-	var sql="select * from hirepurchaseagreement where userID=(select id from users where phoneNO='15884571025')";
+	var sql="select * from hirepurchaseagreement where userID=(select id from users where phoneNO='15919505409')";
+//	var sql="select * from hirepurchaseagreement where userID=(select id from users where phoneNO='15884571025')";
 //	var sql="select h.*,ups.id upsID,ups.payMethod,ups.payAccount,ups.contractID from hirepurchaseagreement h,userrepaymentsetting ups where h.curFirstRepayDate <= @payDate and h.status =1 and h.userRepaymentSettingID = ups.id ";
 	mutiDB(arr,sql);
 	$_response_$={
