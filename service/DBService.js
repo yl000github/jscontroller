@@ -45,6 +45,18 @@ var DBService={
 				tableComment:tableComment,
 				fieldList:fieldList
 			};
+		},
+		getAllTableName:function(sqlExecute){
+			var sql="SHOW TABLES ";
+			return JSON.parse(sqlExecute.query({
+				sql:sql,
+				param:{
+				}
+			})).map(function(item){
+				for(var key in item){
+					return item[key];
+				}
+			});
 		}
 		
 }

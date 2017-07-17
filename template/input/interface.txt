@@ -1,0 +1,8 @@
+id
+userID
+carID
+pullTime
+intervalTime
+carDevicerelID
+createTime
+lastUpdate

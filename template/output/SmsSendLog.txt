@@ -1,0 +1,21 @@
+	@Autowired
+	SmsSendLogService smsSendLogService;
+	@Autowired
+	SmsSendLogDao smsSendLogDao;
+	
+	
+	SmsSendLogDto smsSendLogDto=new SmsSendLogDto();
+    smsSendLogDto.setId(id);
+    smsSendLogDto.setPhoneNO(phoneNO);
+    smsSendLogDto.setTemplateCode(templateCode);
+    smsSendLogDto.setTemplateName(templateName);
+    smsSendLogDto.setSmsName(smsName);
+    smsSendLogDto.setType(type);
+    smsSendLogDto.setSmsContent(smsContent);
+    smsSendLogDto.setSendIP(sendIP);
+    smsSendLogDto.setEnvironmentCode(environmentCode);
+    smsSendLogDto.setEnvironmentDesc(environmentDesc);
+    smsSendLogDto.setSendOperator(sendOperator);
+    smsSendLogDto.setStatus(status);
+    smsSendLogDto.setCreateTime(new Date());
+    smsSendLogDto.setLastUpdate(new Date());

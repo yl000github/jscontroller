@@ -1,0 +1,14 @@
+	@Autowired
+	BlacklistService blacklistService;
+	@Autowired
+	BlacklistDao blacklistDao;
+	
+	
+	BlacklistDto blacklistDto=new BlacklistDto();
+    blacklistDto.setId(id);
+    blacklistDto.setPhoneNO(phoneNO);
+    blacklistDto.setType(type);
+    blacklistDto.setTag(tag);
+    blacklistDto.setRemark(remark);
+    blacklistDto.setCreateTime(new Date());
+    blacklistDto.setLastUpdate(new Date());

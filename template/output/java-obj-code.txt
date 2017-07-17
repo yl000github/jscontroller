@@ -1,0 +1,39 @@
+		@Autowired
+		ValidateCodeService validateCodeService;
+		@Autowired
+		ValidateCodeDao validateCodeDao;
+	
+	
+		ValidateCodeDto validateCodeDto=new ValidateCodeDto();
+		validateCodeDto.setId(id);
+		validateCodeDto.setPhoneNO(phoneNO);
+		validateCodeDto.setValidateCode(validateCode);
+		validateCodeDto.setType(type);
+		validateCodeDto.setEnvironmentCode(environmentCode);
+		validateCodeDto.setExpireTime(expireTime);
+		validateCodeDto.setCreateTime(new Date());
+		validateCodeDto.setLastUpdate(new Date());
+
+
+		if(StringUtils.isEmptyStr(validateCodeDto.getPhoneNO())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数phoneNO缺失");
+		}
+		if(StringUtils.isEmptyStr(validateCodeDto.getValidateCode())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数validateCode缺失");
+		}
+		if(StringUtils.isEmptyStr(validateCodeDto.getType())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数type缺失");
+		}
+		if(StringUtils.isEmptyStr(validateCodeDto.getEnvironmentCode())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数environmentCode缺失");
+		}
+		if(StringUtils.isEmptyStr(validateCodeDto.getExpireTime())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数expireTime缺失");
+		}
+
+
+		String phoneNO=validateCodeDto.getPhoneNO();
+		String validateCode=validateCodeDto.getValidateCode();
+		String type=validateCodeDto.getType();
+		String environmentCode=validateCodeDto.getEnvironmentCode();
+		String expireTime=validateCodeDto.getExpireTime();

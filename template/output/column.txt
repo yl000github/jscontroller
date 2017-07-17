@@ -1,0 +1,153 @@
+改造的列：
+hset smsServer:blackList 13421377112 0
+hset smsServer:blackList 13631661829 0
+hset smsServer:blackList 13903024518 0
+hset smsServer:blackList 13903024518 0
+hset smsServer:blackList 13510089035 0
+hset smsServer:blackList 18665901408 0
+hset smsServer:blackList 13410782741 0
+hset smsServer:blackList 18666565283 0
+hset smsServer:blackList 13006666995 0
+hset smsServer:blackList 17727805235 0
+hset smsServer:blackList 15999509937 0
+hset smsServer:blackList 13825250004 0
+hset smsServer:blackList 18675566916 0
+hset smsServer:blackList 13826511104 0
+hset smsServer:blackList 13808805779 0
+hset smsServer:blackList 13682502646 0
+hset smsServer:blackList 13590271311 0
+hset smsServer:blackList 15889319393 0
+hset smsServer:blackList 15697838388 0
+hset smsServer:blackList 18589029599 0
+hset smsServer:blackList 15217971125 0
+hset smsServer:blackList 13538271207 0
+hset smsServer:blackList 13537521515 0
+hset smsServer:blackList 13826528606 0
+hset smsServer:blackList 18998931000 0
+hset smsServer:blackList 15815550907 0
+hset smsServer:blackList 13728799025 0
+hset smsServer:blackList 17076675578 0
+hset smsServer:blackList 13510164484 0
+hset smsServer:blackList 15210008628 0
+hset smsServer:blackList 13421377112 0
+hset smsServer:blackList 13760464252 0
+hset smsServer:blackList 18689483401 0
+hset smsServer:blackList 13923865151 0
+hset smsServer:blackList 13823382918 0
+hset smsServer:blackList 13510092931 0
+hset smsServer:blackList 13500067070 0
+hset smsServer:blackList 13510092931 0
+hset smsServer:blackList 13480615625 0
+hset smsServer:blackList 13632756857 0
+hset smsServer:blackList 13713870061 0
+hset smsServer:blackList 13903024518 0
+hset smsServer:blackList 15875526094 0
+hset smsServer:blackList 13923897879 0
+hset smsServer:blackList 13682502646 0
+hset smsServer:blackList 18666296506 0
+hset smsServer:blackList 13632703100 0
+hset smsServer:blackList 13510263207 0
+hset smsServer:blackList 18675510968 0
+hset smsServer:blackList 15986842244 0
+hset smsServer:blackList 13823500156 0
+hset smsServer:blackList 13332999001 0
+hset smsServer:blackList 13682353861 0
+hset smsServer:blackList 13510220690 0
+hset smsServer:blackList 18218027277 0
+hset smsServer:blackList 13632515992 0
+hset smsServer:blackList 13510729346 0
+hset smsServer:blackList 18675597545 0
+hset smsServer:blackList 18682045990 0
+hset smsServer:blackList 13691668503 0
+hset smsServer:blackList 13128805650 0
+hset smsServer:blackList 13670216728 0
+hset smsServer:blackList 13316881738 0
+hset smsServer:blackList 18929321292 0
+hset smsServer:blackList 18118786181 0
+hset smsServer:blackList 13590445460 0
+hset smsServer:blackList 13332986232 0
+hset smsServer:blackList 13714092235 0
+hset smsServer:blackList 13902001003 0
+hset smsServer:blackList 13714002459 0
+hset smsServer:blackList 13713560959 0
+hset smsServer:blackList 15602934810 0
+hset smsServer:blackList 13825266506 0
+hset smsServer:blackList 18002500052 0
+hset smsServer:blackList 18565696368 0
+hset smsServer:blackList 13823777005 0
+hset smsServer:blackList 13537868310 0
+
+
+ 统计的列
+13421377112,2
+13631661829,1
+13903024518,3
+13510089035,1
+18665901408,1
+13410782741,1
+18666565283,1
+13006666995,1
+17727805235,1
+15999509937,1
+13825250004,1
+18675566916,1
+13826511104,1
+13808805779,1
+13682502646,2
+13590271311,1
+15889319393,1
+15697838388,1
+18589029599,1
+15217971125,1
+13538271207,1
+13537521515,1
+13826528606,1
+18998931000,1
+15815550907,1
+13728799025,1
+17076675578,1
+13510164484,1
+15210008628,1
+13760464252,1
+18689483401,1
+13923865151,1
+13823382918,1
+13510092931,2
+13500067070,1
+13480615625,1
+13632756857,1
+13713870061,1
+15875526094,1
+13923897879,1
+18666296506,1
+13632703100,1
+13510263207,1
+18675510968,1
+15986842244,1
+13823500156,1
+13332999001,1
+13682353861,1
+13510220690,1
+18218027277,1
+13632515992,1
+13510729346,1
+18675597545,1
+18682045990,1
+13691668503,1
+13128805650,1
+13670216728,1
+13316881738,1
+18929321292,1
+18118786181,1
+13590445460,1
+13332986232,1
+13714092235,1
+13902001003,1
+13714002459,1
+13713560959,1
+15602934810,1
+13825266506,1
+18002500052,1
+18565696368,1
+13823777005,1
+13537868310,1

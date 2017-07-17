@@ -32,7 +32,7 @@ Action(function(request){
 });
 function upload(){
 	//TODO
-	var downloadDir="e:/download/";
+	var downloadDir="D:/_job/商品23上线方案/数据割接/";
 	var httpRequest="http://192.168.1.39:10500/miResourceMgr/upload";
 	var pics=JSON.parse(FileUtil.listDir(downloadDir));
 	log("pics",pics);
@@ -65,8 +65,8 @@ function save2DB(sqlExecute,paths){
 		var groupName=path.goupName;
 		var httpUrl="/"+groupName+"/"+path.remoteFileName;
 		var rs=JSON.parse(sqlExecute.execute({
-			sql:"update resources set groupName=@groupName,remoteFileName=@remoteFileName,httpUrl=@httpUrl,lastUpdate=NOW()" +
-			" where id=@resourceID",
+			sql:"insert into resources(id,onwerID,level,maxWidth,maxHeight,maxSize,httpUrl,groupName,remoteFileName,createTime,lastUpdate) " +
+			"values(@resourceID,@onwerID,@level,@maxWidth,@maxHeight,@maxSize,@httpUrl,@groupName,@remoteFileName,NOW(),NOW())",
 			param:{
 				groupName:groupName,
 				remoteFileName:path.remoteFileName,

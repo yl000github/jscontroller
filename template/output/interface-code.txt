@@ -1,0 +1,37 @@
+参数校验	
+		if(StringUtils.isEmptyStr(id)){
+			LogUtil.log("参数id缺失");return;
+		}
+		if(StringUtils.isEmptyStr(userID)){
+			LogUtil.log("参数userID缺失");return;
+		}
+		if(StringUtils.isEmptyStr(carID)){
+			LogUtil.log("参数carID缺失");return;
+		}
+		if(StringUtils.isEmptyStr(pullTime)){
+			LogUtil.log("参数pullTime缺失");return;
+		}
+		if(StringUtils.isEmptyStr(intervalTime)){
+			LogUtil.log("参数intervalTime缺失");return;
+		}
+		if(StringUtils.isEmptyStr(carDevicerelID)){
+			LogUtil.log("参数carDevicerelID缺失");return;
+		}
+		if(StringUtils.isEmptyStr(createTime)){
+			LogUtil.log("参数createTime缺失");return;
+		}
+		if(StringUtils.isEmptyStr(lastUpdate)){
+			LogUtil.log("参数lastUpdate缺失");return;
+		}
+	
+接口测试json报文
+{
+	"id":"0",
+	"userID":"7",
+	"carID":"7",
+	"pullTime":"2017-06-15 17:07:04",
+	"intervalTime":"2",
+	"carDevicerelID":"2",
+	"createTime":"2017-06-15 17:07:04",
+	"lastUpdate":"2017-06-15 17:07:04"
+}
