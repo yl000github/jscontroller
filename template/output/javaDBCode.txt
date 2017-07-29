@@ -1,158 +1,50 @@
 		@Autowired
-		GoodsService goodsService;
+		DeviceBasicLogsService deviceBasicLogsService;
 		@Autowired
-		GoodsDao goodsDao;
+		DeviceBasicLogsDao deviceBasicLogsDao;
 	
 	
-		GoodsDto goodsDto=new GoodsDto();
-		goodsDto.setId(id);
-		goodsDto.setGoodsCustomNumber(goodsCustomNumber);
-		goodsDto.setGoodsName(goodsName);
-		goodsDto.setGoodsDescription(goodsDescription);
-		goodsDto.setKindType(kindType);
-		goodsDto.setProtectPlanID(protectPlanID);
-		goodsDto.setGoodsTypeID(goodsTypeID);
-		goodsDto.setConsumeMode(consumeMode);
-		goodsDto.setPayMode(payMode);
-		goodsDto.setAgreementUnit(agreementUnit);
-		goodsDto.setAgreementVal(agreementVal);
-		goodsDto.setConsumeUnit(consumeUnit);
-		goodsDto.setConsumeVal(consumeVal);
-		goodsDto.setMinDay(minDay);
-		goodsDto.setPayUnit(payUnit);
-		goodsDto.setPayVal(payVal);
-		goodsDto.setChargeModeID(chargeModeID);
-		goodsDto.setRefundModeID(refundModeID);
-		goodsDto.setIsCustom(isCustom);
-		goodsDto.setBillType(billType);
-		goodsDto.setUseDevice(useDevice);
-		goodsDto.setAppCode(appCode);
-		goodsDto.setGoodsStatus(goodsStatus);
-		goodsDto.setPriority(priority);
-		goodsDto.setCreateTime(new Date());
-		goodsDto.setLastUpdate(new Date());
+		DeviceBasicLogsDto deviceBasicLogsDto=new DeviceBasicLogsDto();
+		deviceBasicLogsDto.setId(id);
+		deviceBasicLogsDto.setInputDate(inputDate);
+		deviceBasicLogsDto.setDeviceNumber(deviceNumber);
+		deviceBasicLogsDto.setDeviceSupplierNumber(deviceSupplierNumber);
+		deviceBasicLogsDto.setDeviceSupplierName(deviceSupplierName);
+		deviceBasicLogsDto.setCarLicenseNO(carLicenseNO);
+		deviceBasicLogsDto.setCreateTime(new Date());
+		deviceBasicLogsDto.setLastUpdate(new Date());
 //set语句
-		goodsDto.setId(null);
-		goodsDto.setGoodsCustomNumber(null);
-		goodsDto.setGoodsName(null);
-		goodsDto.setGoodsDescription(null);
-		goodsDto.setKindType(null);
-		goodsDto.setProtectPlanID(null);
-		goodsDto.setGoodsTypeID(null);
-		goodsDto.setConsumeMode(null);
-		goodsDto.setPayMode(null);
-		goodsDto.setAgreementUnit(null);
-		goodsDto.setAgreementVal(null);
-		goodsDto.setConsumeUnit(null);
-		goodsDto.setConsumeVal(null);
-		goodsDto.setMinDay(null);
-		goodsDto.setPayUnit(null);
-		goodsDto.setPayVal(null);
-		goodsDto.setChargeModeID(null);
-		goodsDto.setRefundModeID(null);
-		goodsDto.setIsCustom(null);
-		goodsDto.setBillType(null);
-		goodsDto.setUseDevice(null);
-		goodsDto.setAppCode(null);
-		goodsDto.setGoodsStatus(null);
-		goodsDto.setPriority(null);
-		goodsDto.setCreateTime(null);
-		goodsDto.setLastUpdate(null);
+		deviceBasicLogsDto.setId(null);
+		deviceBasicLogsDto.setInputDate(null);
+		deviceBasicLogsDto.setDeviceNumber(null);
+		deviceBasicLogsDto.setDeviceSupplierNumber(null);
+		deviceBasicLogsDto.setDeviceSupplierName(null);
+		deviceBasicLogsDto.setCarLicenseNO(null);
+		deviceBasicLogsDto.setCreateTime(null);
+		deviceBasicLogsDto.setLastUpdate(null);
 
-		if(StringUtils.isEmptyStr(goodsDto.getGoodsCustomNumber())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数goodsCustomNumber缺失");
+		if(StringUtils.isEmptyStr(deviceBasicLogsDto.getInputDate())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数inputDate缺失");
 		}
-		if(StringUtils.isEmptyStr(goodsDto.getGoodsName())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数goodsName缺失");
+		if(StringUtils.isEmptyStr(deviceBasicLogsDto.getDeviceNumber())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数deviceNumber缺失");
 		}
-		if(StringUtils.isEmptyStr(goodsDto.getGoodsDescription())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数goodsDescription缺失");
+		if(StringUtils.isEmptyStr(deviceBasicLogsDto.getDeviceSupplierNumber())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数deviceSupplierNumber缺失");
 		}
-		if(StringUtils.isEmptyStr(goodsDto.getKindType())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数kindType缺失");
+		if(StringUtils.isEmptyStr(deviceBasicLogsDto.getDeviceSupplierName())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数deviceSupplierName缺失");
 		}
-		if(StringUtils.isEmptyStr(goodsDto.getProtectPlanID())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数protectPlanID缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getGoodsTypeID())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数goodsTypeID缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getConsumeMode())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数consumeMode缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getPayMode())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数payMode缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getAgreementUnit())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数agreementUnit缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getAgreementVal())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数agreementVal缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getConsumeUnit())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数consumeUnit缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getConsumeVal())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数consumeVal缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getMinDay())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数minDay缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getPayUnit())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数payUnit缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getPayVal())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数payVal缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getChargeModeID())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数chargeModeID缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getRefundModeID())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数refundModeID缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getIsCustom())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数isCustom缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getBillType())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数billType缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getUseDevice())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数useDevice缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getAppCode())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数appCode缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getGoodsStatus())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数goodsStatus缺失");
-		}
-		if(StringUtils.isEmptyStr(goodsDto.getPriority())){
-			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数priority缺失");
+		if(StringUtils.isEmptyStr(deviceBasicLogsDto.getCarLicenseNO())){
+			throw new BusinessException(ServerErrorCode.E1001.getCode(),"参数carLicenseNO缺失");
 		}
 
 
-		String goodsCustomNumber=goodsDto.getGoodsCustomNumber();
-		String goodsName=goodsDto.getGoodsName();
-		String goodsDescription=goodsDto.getGoodsDescription();
-		String kindType=goodsDto.getKindType();
-		String protectPlanID=goodsDto.getProtectPlanID();
-		String goodsTypeID=goodsDto.getGoodsTypeID();
-		String consumeMode=goodsDto.getConsumeMode();
-		String payMode=goodsDto.getPayMode();
-		String agreementUnit=goodsDto.getAgreementUnit();
-		String agreementVal=goodsDto.getAgreementVal();
-		String consumeUnit=goodsDto.getConsumeUnit();
-		String consumeVal=goodsDto.getConsumeVal();
-		String minDay=goodsDto.getMinDay();
-		String payUnit=goodsDto.getPayUnit();
-		String payVal=goodsDto.getPayVal();
-		String chargeModeID=goodsDto.getChargeModeID();
-		String refundModeID=goodsDto.getRefundModeID();
-		String isCustom=goodsDto.getIsCustom();
-		String billType=goodsDto.getBillType();
-		String useDevice=goodsDto.getUseDevice();
-		String appCode=goodsDto.getAppCode();
-		String goodsStatus=goodsDto.getGoodsStatus();
-		String priority=goodsDto.getPriority();
+		String inputDate=deviceBasicLogsDto.getInputDate();
+		String deviceNumber=deviceBasicLogsDto.getDeviceNumber();
+		String deviceSupplierNumber=deviceBasicLogsDto.getDeviceSupplierNumber();
+		String deviceSupplierName=deviceBasicLogsDto.getDeviceSupplierName();
+		String carLicenseNO=deviceBasicLogsDto.getCarLicenseNO();
 
 
-ValidateHelper.validateNull(request, new String[]{"goodsCustomNumber","goodsName","goodsDescription","kindType","protectPlanID","goodsTypeID","consumeMode","payMode","agreementUnit","agreementVal","consumeUnit","consumeVal","minDay","payUnit","payVal","chargeModeID","refundModeID","isCustom","billType","useDevice","appCode","goodsStatus","priority"});
+ValidateHelper.validateNull(request, new String[]{"inputDate","deviceNumber","deviceSupplierNumber","deviceSupplierName","carLicenseNO"});
