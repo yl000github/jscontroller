@@ -4,15 +4,19 @@ load("/lib/ExcelUtil.js");
 load("/lib/DBUtil.js");
 load("/service/DBService.js");
 Action(function(request){
-	var filepath="e:/短信汇总.xlsx";
+	var filepath="E:/doc/04架构设计/短信组件/短信汇总.xlsx";
 	var content=ExcelUtil.read(filepath);
 	log("content before",content);
 	//JSON.parse 和eval解析出的结果不一样，难以分析其中的原因
 	var obj=eval("("+content+")");
 //	var obj=JSON.parse(String(content));
 	log("content after",obj);
+//	var lineNoList=[8,22,23,24,42,43,44,48,49];
+	var lineNoList=[27,31];
 	for(var lineNo in obj){
 		if(lineNo==0||lineNo==1||lineNo==2) continue;
+		//过滤不用的行
+		if(lineNoList.indexOf(parseInt(lineNo)+1)==-1) continue;
 		var lineObj=obj[lineNo];
 //		log("lineObj",lineObj)
 		var applyName=lineObj[0];
