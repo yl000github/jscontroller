@@ -12,7 +12,7 @@ Action(function(request){
 //	var obj=JSON.parse(String(content));
 	log("content after",obj);
 //	var lineNoList=[8,22,23,24,42,43,44,48,49];
-	var lineNoList=[27,31];
+	var lineNoList=[39,40,41];
 	for(var lineNo in obj){
 		if(lineNo==0||lineNo==1||lineNo==2) continue;
 		//过滤不用的行
@@ -22,7 +22,7 @@ Action(function(request){
 		var applyName=lineObj[0];
 		var title=lineObj['1'];
 		var templateContent=lineObj[2];
-		var ytxCode=lineObj[4];
+		var ytxCode=lineObj[4]?lineObj[4]:'';
 		var templateCode=lineObj[5];
 		if(!templateCode) continue;
 		var sql="insert into template(code,platformTemplateName,platformContent,limitCount,smsTemplateCode,smsContent,smsName,createTime,lastUpdate) values(@code,@platformTemplateName,@platformContent,@limitCount,@smsTemplateCode,@smsContent,@smsName,NOW(),NOW());";
