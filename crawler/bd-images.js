@@ -10,15 +10,22 @@ Action(function(request){
 	//只考虑某个套图
 	var dir="f:/bd-images/";
 	var url="https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1503314500785_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%99%BD%E4%BA%91";
-	
 	var doc=JsoupUtil.open(url);
+	var html=doc.html();
+//	var html=FileUtil.read("f:/dd.txt");
 	var folder=doc.select("h2").html();
 	log("文件名",folder)
 	FileUtil.mkdir(dir, true);
-	var html=doc.html();
-	var imgUrls=html.match(/https:\/\/ss1.bdstatic.com\[0-9a-zA-Z\/_]*\.jpg/g);
+	var imgUrls=html.match(/https:\/\/ss1\.bdstatic\.com.*?jpg/gm);
 	log("imgUrls",imgUrls)
-	
+	for(var i=0;i<imgUrls.length;i++){
+		var headers=null;
+//		var headers={
+//				"user-agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
+//				"Referer":"http://www.mmjpg.com",
+//		}
+		HttpUtil.download(imgUrls[i], dir+i+".jpg", headers);
+	}
 //	log("", doc.html());
 //	FileUtil.write("f:/dd.txt", doc.html(), false);
 //	var len=doc.select("div.page").select("a").size()
@@ -44,6 +51,7 @@ Action(function(request){
 //		HttpUtil.download(picUrlArr[i], dir+i+".jpg", headers);
 //	}
 	$_response_$={
-		errorCode:0
+		errorCode:0,
+		data:imgUrls
 	}
 })

@@ -10,9 +10,9 @@ load("/lib/DBUtil.js");
 		return ;
 	}
 	var sqlExecute=DBUtil.getInstance(false,{
-		url:"jdbc:mysql://192.168.1.15:3306/smsdb?characterEncoding=utf-8&characterSetResults=utf-8&useUnicode=false",
-		user:"ymt",
-		password:"yimiaotong2015",
+		url:"jdbc:mysql://192.168.1.15:3306/yy?characterEncoding=utf-8&characterSetResults=utf-8&useUnicode=false",
+		user:"root",
+		password:"ymt15",
 		driver:"com.mysql.jdbc.Driver",
 	});
 	var rs=JSON.parse(sqlExecute.query({

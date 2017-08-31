@@ -15,8 +15,10 @@ load("/lib/JsoupUtil.js");
 Action(function(request){
 	var c=FileUtil.read("f:/dd1.txt");
 //	log("match",c.match(/<div.*?>/g))
-	log("match",c.match(/Chapter [0-9]*/gm))
+	var list=c.match(/Chapter [0-9]*?.jpg/gm);
+	log("match",list)
 	$_response_$={
-		errorCode:0
+		errorCode:0,
+		data:list
 	}
 })

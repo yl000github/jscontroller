@@ -11,6 +11,7 @@
 	payCert.put("${column}", ${column});
 </#list>
 
+
 hmset smsServer:blackList <#list columnList as column> ${column} 0</#list>
 
 
