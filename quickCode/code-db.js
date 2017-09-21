@@ -21,10 +21,12 @@ Action(function(request){
 	});
 	var input=QuickCodeService.inputDB(sqlExecute, tableName);
 	QuickCodeService.process(input, function(data){
+		var sqlObj=getSql(data.columnList, data.tableName)
+		data.insertSql1=sqlObj.insertSql1;
+		data.insertSql2=sqlObj.insertSql2;
 		return data;
 	}, {
 		type:3,
-		path:"C:/Users/Administrator/Desktop/fast.txt",
 		templateName:"quickCode-db.ftl"
 	});
 	
@@ -32,3 +34,38 @@ Action(function(request){
 			errorCode:0
 	}
 })
+
+function getSql(rawColumnList,tableName){
+	//insert 语句
+	var columnList=rawColumnList.filter(function(item){
+		return item!="id";
+	});
+	var prefix=columnList.join(",");
+	var suffix=columnList.filter(function(item){
+		return item!="createTime"&&item!="lastUpdate";
+	}).join(",@");
+	var insertRaw="insert into @tableName(@prefix) values(@@suffix,NOW(),NOW())";
+	var insertSql=insertRaw.replace("@tableName",tableName).replace("@prefix",prefix).replace("@suffix",suffix);
+	//another insert sql
+	var prefix=rawColumnList.join(",");
+	var suffix=rawColumnList.filter(function(item){
+		return true;
+	}).join(",@");
+	var insertRaw1="insert into @tableName(@prefix) values(@@suffix)";
+	var insertSql1=insertRaw1.replace("@tableName",tableName).replace("@prefix",prefix).replace("@suffix",suffix);
+	
+	var prefix=rawColumnList.filter(function(item){
+		return item!="id";
+//		return item!="id"&&item!="createTime"&&item!="lastUpdate";
+	}).join(",");
+	var suffix=rawColumnList.filter(function(item){
+		return item!="id"&&item!="createTime"&&item!="lastUpdate";
+	}).join(",@");
+	var insertRaw2="insert into @tableName(@prefix) values(@@suffix,now(),now()) on duplicate key update lastUpdate=now()";
+	var insertSql2=insertRaw2.replace("@tableName",tableName).replace("@prefix",prefix).replace("@suffix",suffix);
+	return {
+		insertSql:insertSql,
+		insertSql1:insertSql1,
+		insertSql2:insertSql2,
+	}
+}

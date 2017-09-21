@@ -16,6 +16,15 @@ var QuickCodeService={
 				columnList:columnList
 			}
 		},
+		/**
+		 * {
+				tableName:tableName,
+				columnList:columnList,
+			}
+		 * @param sqlExecute
+		 * @param tableName
+		 * @returns {___anonymous534_594}
+		 */
 		inputDB:function(sqlExecute,tableName){
 			var columnList=DBService.getColumnList(sqlExecute, tableName);
 			return {

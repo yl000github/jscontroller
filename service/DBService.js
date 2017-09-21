@@ -81,7 +81,7 @@ var DBService={
 			var sColumn=key.toLowerCase();
 //			log("sColumn",sColumn)
 			var value=randomStr(5);
-			var numList=["status","id","val","priority","type","mode","amount","qty"];
+			var numList=["status","id","val","priority","type","mode","amount","qty","count"];
 			var dateList=["date","time","lastupdate"]; 
 			for (var i = 0; i < numList.length; i++) {
 				if(sColumn.indexOf(numList[i])!=-1){

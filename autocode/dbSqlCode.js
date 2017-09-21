@@ -10,7 +10,7 @@ load("/lib/DBUtil.js");
 		return ;
 	}
 	var sqlExecute=DBUtil.getInstance(false,{
-		url:"jdbc:mysql://192.168.1.15:3306/yy?characterEncoding=utf-8&characterSetResults=utf-8&useUnicode=false",
+		url:"jdbc:mysql://192.168.1.15:3306/dlb?characterEncoding=utf-8&characterSetResults=utf-8&useUnicode=false",
 		user:"root",
 		password:"ymt15",
 		driver:"com.mysql.jdbc.Driver",
