@@ -9,12 +9,25 @@ load("/service/CrawlerService.js");
 Action(function(request){
 	//初始化
 	var dir="f:/thz-obj/";
-	var url="F:/BaiduNetdiskDownload/1/2.html";
+//	var url="F:/BaiduNetdiskDownload/1/2.html";
+//	var url="http://thzbbt.net/forum-181-{1}.html";
+	var url="http://thzbbt.net/forum.php?mod=forumdisplay&fid=181&filter=heat&orderby=heats";
 	
 	var crawler=new Crawler(url, dir);
 	crawler.then(function(item){
+		var rs=new Array();
+		for(var i=2;i<3;i++){
+			var url=item.url.replace("{1}",i);
+			rs.push({
+				url:url,
+				dir:item.dir
+			})
+		}
+		return rs;
+	}).then(function(item){
 		//获取子页面链接
-		var doc=JsoupUtil.openFile(item.url);
+		var doc=JsoupUtil.open(item.url);
+//		var doc=JsoupUtil.openFile(item.url);
 		log("s")
 		return arrayMap(doc.select("th.common"), function(linkFather){
 			log("s1")
