@@ -5,6 +5,7 @@ load("/lib/HttpUtil.js");
 load("/lib/JsoupUtil.js");
 load("/lib/FileUtil.js");
 load("/service/CrawlerService.js");
+load("/service/TxtService.js");
 
 Action(function(request){
 	//初始化
@@ -32,9 +33,9 @@ Action(function(request){
 		return arrayMap(doc.select("th.common"), function(linkFather){
 			log("s1")
 			log("href",linkFather.select("a")[3].attr("href"))
-			log("title",linkFather.select("a")[3].html())
+//			log("title",linkFather.select("a")[3].html())
 			return {
-				url:linkFather.select("a")[3].attr("href"),
+				url:"http://thzbbt.net/"+linkFather.select("a")[3].attr("href"),
 				title:linkFather.select("a")[3].html(),
 				path:dir+linkFather.select("a")[3].html()+"/",
 			}
